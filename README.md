@@ -60,3 +60,18 @@ uv run streamlit run app.py
 실행하면 웹 브라우저에 대시보드가 열린다. 자동으로 열리지 않으면 터미널에 표시된 주소(보통 http://localhost:8501)를 브라우저에 입력한다.
 
 화면에서 엑셀 파일(예: `data/sales_2026.xlsx`)을 올리면 대시보드가 나타난다. 끝내려면 터미널에서 `Ctrl + C`를 누른다.
+
+## Claude Code로 개발하기
+
+Claude Code 같은 AI 에이전트로 이 프로젝트를 이어서 개발한다면, `uv sync` 다음에 Streamlit 스킬을 설치한다. 스킬은 AI 에이전트가 Streamlit 앱을 올바르게 만들도록 돕는 Streamlit 공식 안내서다.
+
+```bash
+uv sync
+uv run streamlit skills --yes
+```
+
+이 명령은 `.claude/skills/`와 `.agents/skills/`에 `.venv` 안의 Streamlit 스킬을 가리키는 바로가기를 만든다.
+
+- 스킬 버전은 `uv.lock`에 고정된 Streamlit 버전을 따르므로, 누가 설치해도 같은 스킬을 쓴다.
+- 바로가기는 컴퓨터마다 따로 만드는 것이라 git에 올리지 않는다(`.gitignore`에 들어 있다).
+- Streamlit을 업그레이드하면 스킬도 함께 최신 내용으로 바뀐다.

@@ -29,6 +29,12 @@ Streamlit, pandas, openpyxl로 만드는 매출 대시보드다. `uv init --no-p
 - 개발용 패키지 추가: `uv add --dev <패키지>`
 - 변경 사항을 받은 뒤 환경 맞추기: `uv sync`
 
+## Streamlit 스킬
+
+- Streamlit 코드를 만들거나 고치기 전에 `.claude/skills/developing-with-streamlit`이 있는지 확인한다. 없으면 `uv run streamlit skills --yes`를 실행해 설치한 뒤 작업한다(`.venv`가 없으면 먼저 `uv sync`).
+- 이 스킬은 `.venv` 안의 Streamlit 설치 폴더를 가리키는 바로가기라서, 컴퓨터마다 따로 만든다. `.gitignore`에 들어 있으므로 git에 추가하지 않는다.
+- 스킬 내용은 `uv.lock`에 고정된 Streamlit 버전을 따른다. 스킬 파일을 프로젝트에 복사해 커밋하지 않는다(업그레이드해도 옛 내용이 남기 때문이다).
+
 ## 데이터
 
 `app.py`는 파일을 직접 읽지 않고, 사용자가 화면의 `st.file_uploader`로 올린 엑셀 파일을 읽는다. 파일을 올리기 전에는 안내 문구만 보여 주고 `st.stop()`으로 멈춘다.
