@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# .venv 안의 Streamlit 스킬을 가리키는 바로가기(컴퓨터마다 다르다)
+.claude/skills/developing-with-streamlit
+.agents/skills/developing-with-streamlit
